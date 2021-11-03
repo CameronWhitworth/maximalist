@@ -4,10 +4,15 @@
         <vue-masonry-wall :items="data.imageCollection.items" :options="options">
           <template v-slot:default="{ item }">
             <div class="Item">
-              <router-link :to="{ name: 'about', params: { id: item.slug } }">
-                <!-- <v-btn> {{ item.slug }} </v-btn> -->
-                <img :src="item.photo.url" />
+               <router-link :to="{ name: 'about', params: { id: item.slug } }">
+                <v-btn> {{ item.slug }} </v-btn>
               </router-link>
+              <img :src="item.photo.url" />
+
+              <!-- <div class="Content">
+                    <h5 class="text-ellipsis-1l">{{ item.title }}</h5>
+                    <p class="text-ellipsis-2l">{{ item.imageCaption }}</p>
+                  </div> -->
             </div>
           </template>
         </vue-masonry-wall>
@@ -41,6 +46,8 @@ import VueMasonryWall from "vue-masonry-wall";
 
 import { gql } from "nuxt-graphql-request";
 
+//console.log(this.$route.params.id)
+
 export default {
   components: { VueMasonryWall },
   data() {
@@ -57,8 +64,8 @@ export default {
 
   async asyncData({ $graphql, params }) {
     const query = gql`
-      query {
-        imageCollection {
+      query ($slug: String) {
+        imageCollection(where: { slug: $slug }) {
           items {
             title
             slug
@@ -79,7 +86,8 @@ export default {
       }
     `;
 
-    const data = await $graphql.default.request(query);
+    const veriables = { slug: "kitchen" }
+    const data = await $graphql.default.request(query, veriables);
     return { data };
   },
 };
