@@ -1,14 +1,18 @@
 <template>
-  <section>
-    <div v-for="item in data.imageCollection.items" v-bind:key="item.items">
-      <!-- {{ data.imageCollection.items }} -->
-      {{ item.title }}
-      {{ item.imageCaption }}
-      {{ item.imageCredits }}
-      <br />
-      <img :src="item.photo.url" />
-    </div>
-  </section>
+  <v-app>
+      <v-content class="text-center">
+        <section>
+            <div v-for="item in data.imageCollection.items" v-bind:key="item.items">
+            <!-- {{ data.imageCollection.items }} -->            
+            <img :src="item.photo.url" />
+            <br />
+            {{ item.title }}
+            {{ item.imageCaption }}
+            {{ item.imageCredits }}
+          </div>
+        </section>
+      </v-content>
+  </v-app>
 </template>
 
 <script>
