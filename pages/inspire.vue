@@ -1,20 +1,20 @@
 <template>
-    <section>
-      <div>
-        <vue-masonry-wall :items="data.imageCollection.items" :options="options">
-          <template v-slot:default="{ item }">
-            <div class="Item">
-              <router-link :to="{ name: 'about', params: { id: item.slug } }">
-                <!-- <v-btn> {{ item.slug }} </v-btn> -->
-                <img :src="item.photo.url" />
-              </router-link>
-            </div>
-          </template>
-        </vue-masonry-wall>
-      </div>
-    </section>
+  <section>
+    <div>
+      <vue-masonry-wall :items="data.imageCollection.items" :options="options">
+        <template v-slot:default="{ item }">
+          <div class="Item">
+            <router-link :to="{ name: 'photo-id', params: { id: item.slug } }">
+              <!-- <v-btn> {{ item.slug }} </v-btn> -->
+              <img :src="item.photo.url" />
+            </router-link>
+          </div>
+        </template>
+      </vue-masonry-wall>
+    </div>
+  </section>
 
-    <!-- <div>
+  <!-- <div>
       <v-container
         <v-row>
           <v-col v-for="item in data.imageCollection.items" :key="item.id" class="mt-2 mb-2" color="grey lighten-3" flat cols="12" md="4">
@@ -55,7 +55,7 @@ export default {
     };
   },
 
-  async asyncData({ $graphql, params }) {
+  async asyncData({ $graphql, params, route }) {
     const query = gql`
       query {
         imageCollection {
