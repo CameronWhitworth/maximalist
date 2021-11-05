@@ -13,27 +13,6 @@
       </vue-masonry-wall>
     </div>
   </section>
-
-  <!-- <div>
-      <v-container
-        <v-row>
-          <v-col v-for="item in data.imageCollection.items" :key="item.id" class="mt-2 mb-2" color="grey lighten-3" flat cols="12" md="4">
-            <v-img :src="item.photo.url"></v-img>
-          </v-col>
-        </v-row>
-      </v-container>
-      <h1>Images</h1>
-      
-      <div v-for="item in data.imageCollection.items" :key="item.title">
-        <h2> {{item.imageCaption}} </h2>
-        <v-img
-        :src= item.photo.url
-        > </v-img>
-        <pre>
-          {{ item }}
-        </pre>
-      </div>
-    </div> -->
 </template>
 
 <script>

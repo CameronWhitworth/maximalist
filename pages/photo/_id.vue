@@ -14,7 +14,8 @@
                 max-height="100vh"
                 max-width="100vh"
                 contain
-                >
+                @click="overlay = true"
+              >
                 <v-row justify="end">
                   <v-btn
                     color="grey"
@@ -23,7 +24,7 @@
                     dark
                     small
                     plain
-                    @click="overlay = !overlay"
+                    @click="overlay = true"
                   >
                     <v-icon dark> mdi-fullscreen </v-icon>
                   </v-btn>
@@ -35,17 +36,16 @@
             <p>{{ item.imageCaption }}</p>
             <p>{{ item.imageCredits }}</p>
 
-            <v-overlay :value="overlay" :opacity="opacity"
-              ><v-img
+            <v-overlay :value="overlay" :opacity="opacity">
+              <v-img
                 :src="item.photo.url"
                 max-height="95vh"
                 min-height="90vh"
                 min-width="50vh"
                 contain
-              /><v-btn color="error" @click="overlay = false">
-                Hide Overlay
-              </v-btn></v-overlay
-            >
+                @click="overlay = false"
+              />
+            </v-overlay>
           </div>
         </v-card>
       </v-row>
