@@ -18,10 +18,11 @@
                   MAXIMALIST
                 </span>
               </v-col>
-
-              <v-btn class="align-self-end" light>
-                Enter
-              </v-btn>
+              <router-link :to="{ name: 'inspire' }">
+                <v-btn class="align-self-end" light>
+                  Enter
+                </v-btn>
+              </router-link>
             </v-row>
           </v-container>
         </v-theme-provider>

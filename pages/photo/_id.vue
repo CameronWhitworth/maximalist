@@ -1,17 +1,55 @@
 <template>
   <v-app>
-      <v-content class="text-center">
-        <section>
-            <div v-for="item in data.imageCollection.items" v-bind:key="item.items">
-            <!-- {{ data.imageCollection.items }} -->            
-            <img :src="item.photo.url" />
+    <v-content class="text-center">
+      <v-row justify="center">
+        <v-card>
+          <div
+            v-for="item in data.imageCollection.items"
+            v-bind:key="item.items"
+          >
+            <!-- {{ data.imageCollection.items }} -->
+            <v-hover>
+              <v-img
+                :src="item.photo.url"
+                max-height="100vh"
+                max-width="100vh"
+                contain
+                >
+                <v-row justify="end">
+                  <v-btn
+                    color="grey"
+                    class="ma-4"
+                    fab
+                    dark
+                    small
+                    plain
+                    @click="overlay = !overlay"
+                  >
+                    <v-icon dark> mdi-fullscreen </v-icon>
+                  </v-btn>
+                </v-row>
+              </v-img>
+            </v-hover>
             <br />
-            {{ item.title }}
-            {{ item.imageCaption }}
-            {{ item.imageCredits }}
+            <p>{{ item.title }}</p>
+            <p>{{ item.imageCaption }}</p>
+            <p>{{ item.imageCredits }}</p>
+
+            <v-overlay :value="overlay" :opacity="opacity"
+              ><v-img
+                :src="item.photo.url"
+                max-height="95vh"
+                min-height="90vh"
+                min-width="50vh"
+                contain
+              /><v-btn color="error" @click="overlay = false">
+                Hide Overlay
+              </v-btn></v-overlay
+            >
           </div>
-        </section>
-      </v-content>
+        </v-card>
+      </v-row>
+    </v-content>
   </v-app>
 </template>
 
@@ -19,6 +57,10 @@
 import { gql } from "nuxt-graphql-request";
 
 export default {
+  data: () => ({
+    overlay: false,
+    opacity: 0.5,
+  }),
   async asyncData({ $graphql, params, route }) {
     const query = gql`
       query ($slug: String) {
