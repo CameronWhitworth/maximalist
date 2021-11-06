@@ -45,13 +45,15 @@ export default {
   }),
   async asyncData({ $graphql, params, route }) {
     const query = gql`
-      query {
-        blogCollection {
+      query ($slug: String) {
+        blogCollection(where: { slug: $slug }) {
           items {
             title
             slug
             date
+            author
             textPreview
+            textBody
             preview {
               title
               description
@@ -67,7 +69,7 @@ export default {
       }
     `;
 
-    const veriables = { slug: route.params.id };
+    const veriables = { slug: route.params.slug };
     const data = await $graphql.default.request(query, veriables);
     return { data };
   },

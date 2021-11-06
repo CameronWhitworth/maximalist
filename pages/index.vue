@@ -19,8 +19,13 @@
                 </span>
               </v-col>
               <router-link :to="{ name: 'inspire' }">
-                <v-btn class="align-self-end" light>
-                  Enter
+                <v-btn class="align-self-end mx-2" light width="105">
+                  Gallery
+                </v-btn>
+              </router-link>
+              <router-link :to="{ name: 'blog' }">
+                <v-btn class="align-self-end mx-2" light width="105">
+                  Blog
                 </v-btn>
               </router-link>
             </v-row>
