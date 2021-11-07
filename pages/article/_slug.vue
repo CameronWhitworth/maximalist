@@ -17,20 +17,20 @@
               {{ item.author }}, {{ item.date | date }}
             </h5>
 
+            <v-divider class="mb-1"></v-divider>
             <v-divider></v-divider>
             
             <v-img
               class="my-1"
               :src="item.preview.url"
               :aspect-ratio="16 / 9"
-            ></v-img>
+            >
+            </v-img>
             <h5 class="font-weight-bold mb-3 text-left text--secondary">
               {{ item.preview.title }}
             </h5>
 
             <v-divider class="mb-1"></v-divider>
-
-            <v-divider></v-divider>
             <v-responsive
               class="mx-auto title font-weight-light mb-8"
               max-width="720"

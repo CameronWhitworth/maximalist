@@ -2,7 +2,6 @@
   <v-app>
     <v-content class="text-center">
       <v-row justify="center">
-        <v-card>
           <div
             v-for="item in data.imageCollection.items"
             v-bind:key="item.items"
@@ -11,6 +10,7 @@
             <v-hover>
               <v-img
                 :src="item.photo.url"
+                class="my-2"
                 max-height="100vh"
                 max-width="100vh"
                 contain
@@ -31,8 +31,11 @@
                 </v-row>
               </v-img>
             </v-hover>
-            <br />
-            <p>{{ item.title }}</p>
+            <v-divider class="mb-1"></v-divider>
+            <v-divider></v-divider>
+            <h2 class="display-2 font-weight-bold mb-3 text-center text-uppercase"
+            >{{ item.title }}
+            </h2>
             <p>{{ item.imageCaption }}</p>
             <p>{{ item.imageCredits }}</p>
 
@@ -47,7 +50,6 @@
               />
             </v-overlay>
           </div>
-        </v-card>
       </v-row>
     </v-content>
   </v-app>
