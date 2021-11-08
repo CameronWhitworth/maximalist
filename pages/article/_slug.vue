@@ -40,7 +40,7 @@
           </v-responsive>
         </v-container>
       </section>
-    </v-content>
+    </v-content>  
   </v-app>
 </template>
 

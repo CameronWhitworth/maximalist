@@ -23,63 +23,56 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      app
-      hide-on-scroll
-    >
+    <v-app-bar :clipped-left="clipped" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-avatar
-      color="grey"
-      size="40">
-      CW
-      </v-avatar>
+      <v-avatar color="grey" size="40"> CW </v-avatar>
     </v-app-bar>
     <v-main>
       <!-- <v-container> -->
-        <Nuxt />
+      <Nuxt />
       <!-- </v-container> -->
     </v-main>
-    <!-- <v-footer
-      :absolute="!fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+    <!-- <v-footer class="justify-center" color="#292929" height="100">
+      <div
+        class="title font-weight-light grey--text text--lighten-1 text-center"
+      >
+        &copy; {{ new Date().getFullYear() }} — Cameron Whitworth
+      </div>
     </v-footer> -->
   </v-app>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: true,
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: "mdi-apps",
+          title: "Welcome",
+          to: "/",
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: "mdi-chart-bubble",
+          title: "Inspire",
+          to: "/inspire",
         },
         {
-          icon: 'mdi-post',
-          title: 'Articals',
-          to: '/blog'
-        }
+          icon: "mdi-post",
+          title: "Articals",
+          to: "/blog",
+        },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'The Maximalist'
-    }
-  }
-}
+      title: "Maximalist",
+    };
+  },
+};
 </script>
