@@ -1,14 +1,13 @@
 <template>
   <v-app>
-    <section id="blog">
-          <div class="py-12"></div>
-
-          <v-container class="text-center">
-            <h2 class="display-2 font-weight-bold mb-3">MAXIMALIST ARTICALS</h2>
-
-          </v-container>
-        </section>
     <v-content class="text-center">
+      <v-container class="text-left">
+        <v-row justify="center">
+          <v-card width="100vh" class="ma-1" color="transparent" flat>
+            <h2 class="display-2 font-weight-bold ma-5">LATEST ARTICALS</h2>
+          </v-card>
+        </v-row>
+      </v-container>
       <v-row
         justify="center"
         v-for="item in data.blogCollection.items"
@@ -31,9 +30,11 @@
                   max-width="300px"
                 ></v-img>
                 <v-list-item-content>
-                  <!-- <div class="overline mb-4">MAXIMALIST ARTICAL</div> --> 
+                  <!-- <div class="overline mb-4">MAXIMALIST ARTICAL</div> -->
                   <v-list-item-title class="headline mb-1 blue--text">
-                    <h1 class="text-uppercase font-weight-bold" >{{ item.title }}</h1>
+                    <h1 class="text-uppercase font-weight-bold">
+                      {{ item.title }}
+                    </h1>
                   </v-list-item-title>
                   <v-list-item-title class="title mb-1">
                     {{ item.textPreview }}
