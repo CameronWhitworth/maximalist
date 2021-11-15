@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-content class="text-center">
+    <v-content class="text-left">
       <v-container class="text-left">
         <v-row justify="center">
           <v-card width="100vh" class="ma-1" color="transparent" flat>
@@ -14,6 +14,7 @@
         v-bind:key="item.items"
       >
         <div>
+          <v-divider class="mb-1"></v-divider>
           <v-hover v-slot:default="{ hover }">
             <v-card
               width="100vh"
@@ -29,7 +30,7 @@
                   :aspect-ratio="16 / 9"
                   max-width="300px"
                 ></v-img>
-                <v-list-item-content>
+                <v-list-item-content class="mx-3">
                   <!-- <div class="overline mb-4">MAXIMALIST ARTICAL</div> -->
                   <v-list-item-title class="headline mb-1 blue--text">
                     <h1 class="text-uppercase font-weight-bold">
@@ -39,11 +40,12 @@
                   <v-list-item-title class="title mb-1">
                     {{ item.textPreview }}
                   </v-list-item-title>
-                  <div>{{ item.textPreview }}</div>
+                  <div>By {{ item.author }}</div>
                 </v-list-item-content>
               </v-list-item>
             </v-card>
           </v-hover>
+          
         </div>
       </v-row>
     </v-content>
@@ -67,6 +69,7 @@ export default {
             slug
             date
             textPreview
+            author
             preview {
               title
               description

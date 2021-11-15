@@ -1,4 +1,5 @@
 <template>
+  <!-- color="#292929" THE COLOUR OF DARK -->
   <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
@@ -27,16 +28,19 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-avatar color="grey" size="40"> CW </v-avatar>
+      <!-- <v-avatar color="grey" size="40"> CW </v-avatar> -->
+      <v-btn fab small @click="$vuetify.theme.dark=!$vuetify.theme.dark"><v-icon>
+        mdi-theme-light-dark
+      </v-icon></v-btn>
     </v-app-bar>
     <v-main>
       <!-- <v-container> -->
       <Nuxt />
       <!-- </v-container> -->
     </v-main>
-    <v-footer class="justify-center" color="#292929" height="100">
+    <v-footer class="justify-center" height="100">
       <div
-        class="title font-weight-light grey--text text--lighten-1 text-center"
+        class="title font-weight-light text--lighten-1 text-center"
       >
         &copy; {{ new Date().getFullYear() }} — MANIMALIST
       </div>
