@@ -29,9 +29,9 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <!-- <v-avatar color="grey" size="40"> CW </v-avatar> -->
-      <v-btn fab small @click="$vuetify.theme.dark=!$vuetify.theme.dark"><v-icon>
-        mdi-theme-light-dark
-      </v-icon></v-btn>
+      <v-btn fab small @click="toggleTheme()"
+        ><v-icon> mdi-theme-light-dark </v-icon></v-btn
+      >
     </v-app-bar>
     <v-main>
       <!-- <v-container> -->
@@ -39,9 +39,7 @@
       <!-- </v-container> -->
     </v-main>
     <v-footer class="justify-center" height="100">
-      <div
-        class="title font-weight-light text--lighten-1 text-center"
-      >
+      <div class="title font-weight-light text--lighten-1 text-center">
         &copy; {{ new Date().getFullYear() }} — MANIMALIST
       </div>
     </v-footer>
@@ -77,6 +75,21 @@ export default {
       rightDrawer: false,
       title: "Maximalist",
     };
+  },
+  methods: {
+    toggleTheme() {
+      console.log("yeahbaby");
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      localStorage.setItem("useDarkTheme", this.$vuetify.theme.dark.toString());
+    },
+  },
+  mounted() {
+    const theme = localStorage.getItem("useDarkTheme");
+    if (theme) {
+      if (theme == "true") {
+        this.$vuetify.theme.dark = true;
+      } else this.$vuetify.theme.dark = false;
+    }
   },
 };
 </script>
