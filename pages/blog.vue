@@ -88,7 +88,7 @@
                   <v-list-item-title class="text-wrap title mb-2">
                     {{ item.textPreview }}
                   </v-list-item-title>
-                  <div>By {{ item.author }}</div>
+                  <div class="subtitle">By {{ item.author }}</div>
                 </v-list-item-content>
               </v-list-item>
             </v-card>

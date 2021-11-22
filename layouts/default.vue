@@ -26,7 +26,25 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title class="overline" v-text="title" />
+      <!-- <v-tabs
+        centered
+        class="ml-n9"
+        color="grey darken-1"
+      >
+        <v-tab>
+          <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+        </v-tab>
+        <v-tab
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
+          exact
+        >
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-tab>
+      </v-tabs> -->
       <v-spacer />
       <!-- <v-avatar color="grey" size="40"> CW </v-avatar> -->
       <v-btn fab small @click="toggleTheme()"
@@ -40,7 +58,7 @@
     </v-main>
     <v-footer class="justify-center mt-10" height="100">
       <div class="title font-weight-light text--lighten-1 text-center">
-        &copy; {{ new Date().getFullYear() }} — MANIMALIST
+        &copy; {{ new Date().getFullYear() }} — MAXIMALIST
       </div>
     </v-footer>
   </v-app>
