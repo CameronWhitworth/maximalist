@@ -27,17 +27,17 @@
                   <v-img
                     class="ma-3"
                     :src="item.preview.url"
-                    :aspect-ratio="16 / 12"
+                    :aspect-ratio="4 / 3"
                     width="300px"
                   ></v-img>
                   <v-list-item-content class="mx-3">
-                    <!-- <div class="overline mb-4">MAXIMALIST ARTICAL</div> -->
+                    <div class="overline mb-4">{{ item.type }}</div>
                     <v-list-item-title class="text-wrap headline mb-1 blue--text">
                       <h2 class="text-uppercase font-weight-bold">
                         {{ item.title }}
                       </h2>
                     </v-list-item-title>
-                    <v-list-item-title class="text-wrap title mb-1">
+                    <v-list-item-title class="text-wrap title mb-2">
                       {{ item.textPreview }}
                     </v-list-item-title>
                     <div>By {{ item.author }}</div>
@@ -79,13 +79,13 @@
                   max-width="300px"
                 ></v-img>
                 <v-list-item-content class="mx-3">
-                  <!-- <div class="overline mb-4">MAXIMALIST ARTICAL</div> -->
+                  <div class="overline mb-2">{{ item.type }}</div>
                   <v-list-item-title class="text-wrap headline mb-1 blue--text">
                     <h2 class="text-uppercase font-weight-bold">
                       {{ item.title }}
                     </h2>
                   </v-list-item-title>
-                  <v-list-item-title class="text-wrap title mb-1">
+                  <v-list-item-title class="text-wrap title mb-2">
                     {{ item.textPreview }}
                   </v-list-item-title>
                   <div>By {{ item.author }}</div>
@@ -117,6 +117,7 @@ export default {
             date
             textPreview
             author
+            type
             showcase
             preview {
               title
