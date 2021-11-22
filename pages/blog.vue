@@ -1,6 +1,54 @@
 <template>
   <v-app>
     <v-content class="text-left">
+      <!-- <v-container class="text-left">
+        <v-row justify="center">
+          <v-card width="100vh" class="ma-1" color="transparent" flat>
+            <h2 class="display-2 font-weight-bold ma-5">Featured</h2>
+            <v-divider class="mb-1"></v-divider>
+          </v-card>
+        </v-row>
+      </v-container> -->
+      <v-container
+        v-for="item in data.blogCollection.items"
+        v-bind:key="item.items"
+      >
+        <v-row justify="center" v-if="item.showcase === true">
+          <div>
+            <v-hover v-slot:default="{ hover }">
+              <v-card
+                width="100vh"
+                class="ma-1"
+                color="transparent"
+                :elevation="hover ? 5 : 0"
+                :to="{ name: 'article-slug', params: { slug: item.slug } }"
+              >
+                <v-list-item >
+                  <v-img
+                    class="ma-3"
+                    :src="item.preview.url"
+                    :aspect-ratio="16 / 12"
+                    width="300px"
+                  ></v-img>
+                  <v-list-item-content class="mx-3">
+                    <!-- <div class="overline mb-4">MAXIMALIST ARTICAL</div> -->
+                    <v-list-item-title class="text-wrap headline mb-1 blue--text">
+                      <h2 class="text-uppercase font-weight-bold">
+                        {{ item.title }}
+                      </h2>
+                    </v-list-item-title>
+                    <v-list-item-title class="text-wrap title mb-1">
+                      {{ item.textPreview }}
+                    </v-list-item-title>
+                    <div>By {{ item.author }}</div>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-card>
+            </v-hover>
+          </div>
+        </v-row>
+      </v-container>
+
       <v-container class="text-left">
         <v-row justify="center">
           <v-card width="100vh" class="ma-1" color="transparent" flat>
@@ -32,12 +80,12 @@
                 ></v-img>
                 <v-list-item-content class="mx-3">
                   <!-- <div class="overline mb-4">MAXIMALIST ARTICAL</div> -->
-                  <v-list-item-title class="headline mb-1 blue--text">
-                    <h1 class="text-uppercase font-weight-bold">
+                  <v-list-item-title class="text-wrap headline mb-1 blue--text">
+                    <h2 class="text-uppercase font-weight-bold">
                       {{ item.title }}
-                    </h1>
+                    </h2>
                   </v-list-item-title>
-                  <v-list-item-title class="title mb-1">
+                  <v-list-item-title class="text-wrap title mb-1">
                     {{ item.textPreview }}
                   </v-list-item-title>
                   <div>By {{ item.author }}</div>
@@ -45,7 +93,6 @@
               </v-list-item>
             </v-card>
           </v-hover>
-          
         </div>
       </v-row>
     </v-content>
@@ -70,6 +117,7 @@ export default {
             date
             textPreview
             author
+            showcase
             preview {
               title
               description

@@ -38,7 +38,7 @@
       <Nuxt />
       <!-- </v-container> -->
     </v-main>
-    <v-footer class="justify-center" height="100">
+    <v-footer class="justify-center mt-10" height="100">
       <div class="title font-weight-light text--lighten-1 text-center">
         &copy; {{ new Date().getFullYear() }} — MANIMALIST
       </div>
@@ -78,7 +78,6 @@ export default {
   },
   methods: {
     toggleTheme() {
-      console.log("yeahbaby");
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.setItem("useDarkTheme", this.$vuetify.theme.dark.toString());
     },
