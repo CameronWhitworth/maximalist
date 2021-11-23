@@ -26,15 +26,18 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title class="overline" v-text="title" />
-      <!-- <v-tabs
+      <v-spacer></v-spacer>
+      <v-app-bar-title class="text-uppercase" v-text="title" />
+      <v-spacer />
+      <v-btn fab small @click="toggleTheme()"
+        ><v-icon> mdi-theme-light-dark </v-icon></v-btn
+      >
+      <template v-slot:extension>
+        <v-tabs
         centered
         class="ml-n9"
         color="grey darken-1"
       >
-        <v-tab>
-          <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-        </v-tab>
         <v-tab
           v-for="(item, i) in items"
           :key="i"
@@ -44,12 +47,8 @@
         >
           <v-icon>{{ item.icon }}</v-icon>
         </v-tab>
-      </v-tabs> -->
-      <v-spacer />
-      <!-- <v-avatar color="grey" size="40"> CW </v-avatar> -->
-      <v-btn fab small @click="toggleTheme()"
-        ><v-icon> mdi-theme-light-dark </v-icon></v-btn
-      >
+      </v-tabs>
+      </template>
     </v-app-bar>
     <v-main>
       <!-- <v-container> -->
