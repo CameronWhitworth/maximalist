@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" app>
+    <v-app-bar :clipped-left="clipped" hide-on-scroll dense app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-spacer></v-spacer>
       <v-app-bar-title class="text-uppercase" v-text="title" />
